@@ -6,8 +6,9 @@ class Room {
 		int cleanliness;
 		Room * north, * south, * east, * west;
 	public:
+		Room ();
 		Room (int, Room*, Room*, Room*, Room*);
-		int get_cleanliness () { return cleanliness; }
+		int get_cleanliness ();
 };
 
 #endif

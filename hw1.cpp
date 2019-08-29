@@ -7,7 +7,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	Room *r;
-	r = new Room(0,0,0,0,0);
+	r = new Room();
+	
+	cout << r->get_cleanliness() << "\n";
 
 	// Process command line arguments
 	if(argc > 1) {
