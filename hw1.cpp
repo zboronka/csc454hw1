@@ -2,23 +2,29 @@
 #include<string>
 
 #include "room.hpp"
+#include "character.hpp"
+#include "player.hpp"
 
 using namespace std;
 
 int main(int argc, char** argv) {
-	Room *r;
+	Room * r;
+	Player * pc;
 	r = new Room();
+	pc = new Player();
 	
-	cout << r->get_cleanliness() << "\n";
+	printf("%d\n", pc->get_type());
+//	cout << r->get_cleanliness() << "\n";
+//
+//	// Process command line arguments
+//	if(argc > 1) {
+//		for(int i = 0; i < atoi(argv[1]); i++) {
+//			cout << atoi(argv[1]) << "\n";
+//		}
+//	}
 
-	// Process command line arguments
-	if(argc > 1) {
-		for(int i = 0; i < atoi(argv[1]); i++) {
-			cout << atoi(argv[1]) << "\n";
-		}
-	}
-
-	//while(
+	delete r;
+	delete pc;
 
 	return 0; 
 }
