@@ -11,7 +11,7 @@ Character	character.hpp	/^class Character {$/;"	c
 LIBS	Makefile	/^LIBS=$/;"	m
 PLAYER_HPP	player.hpp	/^#define PLAYER_HPP$/;"	d
 Player	player.cpp	/^Player::Player () {$/;"	f	class:Player
-Player	player.hpp	/^class Player {$/;"	c
+Player	player.hpp	/^class Player : public Character {$/;"	c
 ROOM_HPP	room.hpp	/^#define ROOM_HPP$/;"	d
 Room	room.cpp	/^Room::Room () {$/;"	f	class:Room
 Room	room.cpp	/^Room::Room (int c, Room * n, Room * s, Room * e, Room * w) {$/;"	f	class:Room

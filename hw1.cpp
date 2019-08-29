@@ -2,18 +2,18 @@
 #include<string>
 
 #include "room.hpp"
-#include "character.hpp"
 #include "player.hpp"
+#include "nonplayer.hpp"
 
 using namespace std;
 
 int main(int argc, char** argv) {
 	Room * r;
-	Player * pc;
+	NonPlayer * npc;
 	r = new Room();
-	pc = new Player();
+	npc = new NonPlayer();
 	
-	printf("%d\n", pc->get_type());
+	printf("%d\n", npc->get_type());
 //	cout << r->get_cleanliness() << "\n";
 //
 //	// Process command line arguments
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 //	}
 
 	delete r;
-	delete pc;
+	delete npc;
 
 	return 0; 
 }
