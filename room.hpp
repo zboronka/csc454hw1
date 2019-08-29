@@ -2,6 +2,7 @@
 #define ROOM_HPP
 
 class Room {
+	private:
 		int cleanliness;
 		Room * north, * south, * east, * west;
 	public:
