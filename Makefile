@@ -1,5 +1,5 @@
 CC=g++
-FLAGS=
+FLAGS=-std=c++11
 SOURCE=*.cpp
 TARGET=-o main
 LIBS=

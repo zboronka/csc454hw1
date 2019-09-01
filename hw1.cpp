@@ -9,11 +9,11 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	Room * r;
-	NonPlayer * npc;
+	Player * pc;
 	r = new Room();
-	npc = new NonPlayer();
+	pc = new Player(r);
 	
-	printf("%d\n", npc->get_type());
+	printf("%d\n", pc->get_respect());
 //	cout << r->get_cleanliness() << "\n";
 //
 //	// Process command line arguments
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 //	}
 
 	delete r;
-	delete npc;
+	delete pc;
 
 	return 0; 
 }

@@ -8,6 +8,7 @@ class Player : public Character {
 		char respect;
 
 	public:
+		Player(Room *);
 		Player();
 		char get_respect();
 };
