@@ -10,10 +10,11 @@ using namespace std;
 int main(int argc, char** argv) {
 	Room * r;
 	Player * pc;
-	r = new Room();
+	r = new Room(0,1,0,0,0,0);
 	pc = new Player(r);
 	
 	printf("%d\n", pc->get_respect());
+	cout << pc->get_location()->get_cleanliness() << "\n";
 //	cout << r->get_cleanliness() << "\n";
 //
 //	// Process command line arguments

@@ -9,24 +9,31 @@ CC	Makefile	/^CC=g++$/;"	m
 CHARACTER_HPP	character.hpp	/^#define CHARACTER_HPP$/;"	d
 Character	character.hpp	/^class Character {$/;"	c
 LIBS	Makefile	/^LIBS=$/;"	m
+NONPLAYER_HPP	nonplayer.hpp	/^#define NONPLAYER_HPP$/;"	d
+NonPlayer	nonplayer.cpp	/^NonPlayer::NonPlayer () {$/;"	f	class:NonPlayer
+NonPlayer	nonplayer.cpp	/^NonPlayer::NonPlayer (Room * r, char t) {$/;"	f	class:NonPlayer
+NonPlayer	nonplayer.hpp	/^class NonPlayer : public Character {$/;"	c
 PLAYER_HPP	player.hpp	/^#define PLAYER_HPP$/;"	d
 Player	player.cpp	/^Player::Player () {$/;"	f	class:Player
+Player	player.cpp	/^Player::Player (Room * r) {$/;"	f	class:Player
 Player	player.hpp	/^class Player : public Character {$/;"	c
 ROOM_HPP	room.hpp	/^#define ROOM_HPP$/;"	d
-Room	room.cpp	/^Room::Room () {$/;"	f	class:Room
-Room	room.cpp	/^Room::Room (int c, Room * n, Room * s, Room * e, Room * w) {$/;"	f	class:Room
+Room	room.cpp	/^Room::Room (int i, int c, Room * n, Room * s, Room * e, Room * w) {$/;"	f	class:Room
 Room	room.hpp	/^class Room {$/;"	c
 SOURCE	Makefile	/^SOURCE=*.cpp$/;"	m
 TARGET	Makefile	/^TARGET=-o main$/;"	m
 all	Makefile	/^all:$/;"	t
-cleanliness	room.hpp	/^		int cleanliness;$/;"	m	class:Room	typeref:typename:int
+cleanliness	room.hpp	/^		int name, cleanliness;$/;"	m	class:Room	typeref:typename:int
 east	room.hpp	/^		Room * north, * south, * east, * west;$/;"	m	class:Room	typeref:typename:Room ***
 get_cleanliness	room.cpp	/^int Room::get_cleanliness () {$/;"	f	class:Room	typeref:typename:int
+get_location	character.cpp	/^Room * Character::get_location() {$/;"	f	class:Character	typeref:typename:Room *
 get_respect	player.cpp	/^char Player::get_respect() {$/;"	f	class:Player	typeref:typename:char
 get_type	character.cpp	/^char Character::get_type () {$/;"	f	class:Character	typeref:typename:char
 location	character.hpp	/^		Room * location;$/;"	m	class:Character	typeref:typename:Room *
 main	hw1.cpp	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
+name	room.hpp	/^		int name, cleanliness;$/;"	m	class:Room	typeref:typename:int
 north	room.hpp	/^		Room * north, * south, * east, * west;$/;"	m	class:Room	typeref:typename:Room *
+occupants	room.hpp	/^		Character occupants [10];$/;"	m	class:Room	typeref:typename:Character[10]
 respect	player.hpp	/^		char respect;$/;"	m	class:Player	typeref:typename:char
 south	room.hpp	/^		Room * north, * south, * east, * west;$/;"	m	class:Room	typeref:typename:Room **
 type	character.hpp	/^		char type;$/;"	m	class:Character	typeref:typename:char

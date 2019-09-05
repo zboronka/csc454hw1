@@ -4,6 +4,7 @@ NonPlayer::NonPlayer () {
 	type = 1;
 }
 
-NonPlayer::NonPlayer (char t) {
+NonPlayer::NonPlayer (Room * r, char t) {
+	location = r;
 	type = t;
 }

@@ -6,7 +6,7 @@
 class NonPlayer : public Character {
 	public:
 		NonPlayer();
-		NonPlayer(char);
+		NonPlayer(Room *, char);
 };
 
 #endif
