@@ -1,14 +1,10 @@
 #include "room.hpp"
 
-Room::Room (int i, int c, Room * n, Room * s, Room * e, Room * w) {
+Room::Room (char i, char c, Room * n, Room * s, Room * e, Room * w) {
 	name = i;
 	cleanliness = c;
-	north = n;
-	south = s;
-	east = e;
-	west = w;
-}
-
-int Room::get_cleanliness () {
-	return cleanliness;
+	neighbors[NORTH] = n;
+	neighbors[SOUTH] = s;
+	neighbors[EAST] = e;
+	neighbors[WEST] = w;
 }

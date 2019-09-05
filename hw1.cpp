@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 	pc = new Player(r);
 	
 	printf("%d\n", pc->get_respect());
-	cout << pc->get_location()->get_cleanliness() << "\n";
+	printf("%d\n", pc->get_location()->get_cleanliness());
 //	cout << r->get_cleanliness() << "\n";
 //
 //	// Process command line arguments
