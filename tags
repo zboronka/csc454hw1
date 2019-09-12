@@ -27,8 +27,10 @@ SOURCE	Makefile	/^SOURCE=*.cpp$/;"	m
 SOUTH	room.hpp	/^#define SOUTH /;"	d
 TARGET	Makefile	/^TARGET=-o main$/;"	m
 WEST	room.hpp	/^#define WEST /;"	d
+add	room.cpp	/^bool Room::add(Character * c) {$/;"	f	class:Room	typeref:typename:bool
 all	Makefile	/^all:$/;"	t
 cleanliness	room.hpp	/^		char name, cleanliness;$/;"	m	class:Room	typeref:typename:char
+get	room.hpp	/^		Character * get() { return *occupants.begin(); }$/;"	f	class:Room	typeref:typename:Character *
 get_cleanliness	room.hpp	/^		char get_cleanliness () { return cleanliness; }$/;"	f	class:Room	typeref:typename:char
 get_location	character.hpp	/^		Room * get_location() { return location; }$/;"	f	class:Character	typeref:typename:Room *
 get_name	room.hpp	/^		char get_name () { return name; }$/;"	f	class:Room	typeref:typename:char
@@ -40,7 +42,7 @@ main	hw1.cpp	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
 move	character.cpp	/^bool Character::move(int direction) {$/;"	f	class:Character	typeref:typename:bool
 name	room.hpp	/^		char name, cleanliness;$/;"	m	class:Room	typeref:typename:char
 neighbors	room.hpp	/^		Room * neighbors [CARDINALS];$/;"	m	class:Room	typeref:typename:Room * []
-occupants	room.hpp	/^		Character * occupants [MAX_OCCUPANTS];$/;"	m	class:Room	typeref:typename:Character * []
+occupants	room.hpp	/^		vector<Character*> occupants;$/;"	m	class:Room	typeref:typename:vector<Character * >
 remove	room.cpp	/^bool Room::remove(Character * c) {$/;"	f	class:Room	typeref:typename:bool
 respect	player.hpp	/^		char respect;$/;"	m	class:Player	typeref:typename:char
 set_neighbor	room.hpp	/^		void set_neighbor(int direction, Room * location) { neighbors[direction] = location; }$/;"	f	class:Room	typeref:typename:void

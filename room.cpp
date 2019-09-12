@@ -10,10 +10,15 @@ Room::Room (char i, char c) {
 	neighbors[WEST] = NULL;
 }
 
+bool Room::add(Character * c) {
+	occupants.push_back(c);
+	return true;
+}
+
 bool Room::remove(Character * c) {
-	for (int i = 0; i < MAX_OCCUPANTS; i++) {
-		if(occupants[i]==c) {
-			occupants[i]=NULL;
+	for(auto o = occupants.begin(); o != occupants.end(); ) {
+		if(*o == c) {
+			occupants.erase(o);
 			return true;
 		}
 	}
