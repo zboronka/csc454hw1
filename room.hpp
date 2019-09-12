@@ -16,9 +16,12 @@ class Room {
 		Room * neighbors [CARDINALS];
 		Character * occupants [MAX_OCCUPANTS];
 	public:
-		Room (char, char, Room*, Room*, Room*, Room*);
+		Room (char, char);
 		char get_cleanliness () { return cleanliness; }
 		char get_name () { return name; }
+		Room * get_neighbor(int direction) { return neighbors[direction]; }
+		void set_neighbor(int direction, Room * location) { neighbors[direction] = location; }
+		bool remove(Character *);
 };
 
 #endif

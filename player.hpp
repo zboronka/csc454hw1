@@ -9,8 +9,7 @@ class Player : public Character {
 
 	public:
 		Player(Room *);
-		Player();
-		char get_respect();
+		char get_respect() { return respect; }
 };
 
 #endif

@@ -1,9 +1,9 @@
 #include "character.hpp"
+#include "room.hpp"
+#include <iostream>
 
-Room * Character::get_location() {
-	return location;
-}
-
-char Character::get_type () {
-	return type;
+using namespace std;
+bool Character::move(int direction) {
+	cout << location->get_neighbor(direction);
+	return true;
 }

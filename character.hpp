@@ -7,8 +7,9 @@ class Character {
 		char type;
 		Room * location;
 	public:
-		char get_type();
-		Room * get_location();
+		char get_type() { return type; }
+		Room * get_location() { return location; }
+		bool move (int);
 };
 
 #endif

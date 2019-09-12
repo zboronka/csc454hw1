@@ -8,13 +8,15 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	Room * r;
+	Room * r, * n;
 	Player * pc;
-	r = new Room(0,1,0,0,0,0);
+	n = new Room(1,3);
+	r = new Room(0,1);
 	pc = new Player(r);
+	r->set_neighbor(NORTH, r);
 	
 	printf("%d\n", pc->get_respect());
-	printf("%d\n", pc->get_location()->get_cleanliness());
+	pc->move(NORTH);
 //	cout << r->get_cleanliness() << "\n";
 //
 //	// Process command line arguments
