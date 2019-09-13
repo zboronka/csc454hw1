@@ -16,6 +16,8 @@ CLEAN	room.hpp	/^#define CLEAN /;"	d
 Character	character.hpp	/^class Character {$/;"	c
 DIRTY	room.hpp	/^#define DIRTY /;"	d
 EAST	room.hpp	/^#define EAST /;"	d
+GAME_HPP	game.hpp	/^#define GAME_HPP$/;"	d
+Game	game.hpp	/^class Game {$/;"	c
 HALFCLEAN	room.hpp	/^#define HALFCLEAN /;"	d
 LIBS	Makefile	/^LIBS=$/;"	m
 MAX_OCCUPANTS	room.hpp	/^#define MAX_OCCUPANTS /;"	d
@@ -47,6 +49,7 @@ get_neighbor	room.hpp	/^		Room * get_neighbor(char direction) { return neighbors
 get_pc	room.cpp	/^Character * Room::get_pc() {$/;"	f	class:Room	typeref:typename:Character *
 get_respect	player.hpp	/^		char get_respect() { return respect; }$/;"	f	class:Player	typeref:typename:char
 get_type	character.hpp	/^		char get_type() { return type; }$/;"	f	class:Character	typeref:typename:char
+init	game.cpp	/^bool Game::init(int argc, char** argv) {$/;"	f	class:Game	typeref:typename:bool
 interact	animal.cpp	/^void Animal::interact (Player * pc, char action) {$/;"	f	class:Animal	typeref:typename:void
 interact	character.hpp	/^		virtual void interact(Character *, char) { return; }$/;"	f	class:Character	typeref:typename:void
 interact	nonplayer.cpp	/^void NonPlayer::interact (Player * pc, char action) {$/;"	f	class:NonPlayer	typeref:typename:void
@@ -64,5 +67,8 @@ react	character.hpp	/^		virtual void react(char) { return; }$/;"	f	class:Charact
 react	nonplayer.cpp	/^void NonPlayer::react (char cleanliness) {$/;"	f	class:NonPlayer	typeref:typename:void
 remove_occupant	room.cpp	/^bool Room::remove_occupant(Character * c) {$/;"	f	class:Room	typeref:typename:bool
 respect	player.hpp	/^		char respect;$/;"	m	class:Player	typeref:typename:char
+rooms	game.hpp	/^		vector<Room*> rooms;$/;"	m	class:Game	typeref:typename:vector<Room * >
 set_neighbor	room.hpp	/^		void set_neighbor(char direction, Room * location) { neighbors[direction] = location; }$/;"	f	class:Room	typeref:typename:void
 type	character.hpp	/^		char type;$/;"	m	class:Character	typeref:typename:char
+~Game	game.cpp	/^Game::~Game() {$/;"	f	class:Game
+~Room	room.cpp	/^Room::~Room () {$/;"	f	class:Room

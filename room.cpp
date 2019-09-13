@@ -11,6 +11,15 @@ Room::Room (char i, char c) {
 	neighbors[WEST] = NULL;
 }
 
+Room::~Room () {
+	if(!occupants.empty()) {
+		for(auto o = occupants.begin(); o != occupants.end(); ) {
+			delete *o;
+			occupants.erase(o);
+		}
+	}
+}
+
 bool Room::add_occupant(Character * c) {
 	if(occupants.size() == MAX_OCCUPANTS) {
 		cout << "Room full.\n";

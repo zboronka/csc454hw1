@@ -25,6 +25,8 @@ class Room {
 		vector<Character*> occupants;
 	public:
 		Room (char, char);
+		~Room();
+
 		char get_cleanliness () { return cleanliness; }
 		char get_name () { return name; }
 
