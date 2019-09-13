@@ -16,12 +16,9 @@ int main(int argc, char** argv) {
 	r->set_neighbor(NORTH, n);
 	
 	printf("%d\n", pc->get_respect());
-	pc->move(NORTH);
-	cout << "Occupants Begin=" <<  n->get() << "\n";
-	pc->get_location()->add(pc);
-	cout << "Occupants Begin=" <<  n->get() << "\n";
-	pc->get_location()->remove(pc);
-	cout << "Occupants Begin=" <<  n->get() << "\n";
+	cout << pc->move(NORTH) << "\n";
+	pc->get_location()->add_occupant(pc);
+	pc->get_location()->remove_occupant(pc);
 //	cout << r->get_cleanliness() << "\n";
 //
 //	// Process command line arguments

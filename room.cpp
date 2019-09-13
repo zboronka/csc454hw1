@@ -10,17 +10,28 @@ Room::Room (char i, char c) {
 	neighbors[WEST] = NULL;
 }
 
-bool Room::add(Character * c) {
+bool Room::add_occupant(Character * c) {
+	if(occupants.size() == MAX_OCCUPANTS) {
+		return false;
+	}
+
+	for(auto o = occupants.begin(); o != occupants.end(); ) {
+		if(*o ==c) {
+			return false;
+		}
+	}
+
 	occupants.push_back(c);
 	return true;
 }
 
-bool Room::remove(Character * c) {
+bool Room::remove_occupant(Character * c) {
 	for(auto o = occupants.begin(); o != occupants.end(); ) {
 		if(*o == c) {
 			occupants.erase(o);
 			return true;
 		}
 	}
+
 	return false;
 }
