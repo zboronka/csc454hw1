@@ -10,6 +10,7 @@ class Player : public Character {
 	public:
 		Player(Room *);
 		char get_respect() { return respect; }
+		void mod_respect(char m) { respect += m; }
 };
 
 #endif

@@ -6,7 +6,7 @@ using namespace std;
 
 NonPlayer::NonPlayer (Room * r) {
 	location = r;
-	type = 1;
+	type = NPC;
 }
 
 bool NonPlayer::move (char direction) {
@@ -14,7 +14,7 @@ bool NonPlayer::move (char direction) {
 
 	if(neighbor->add_occupant(this)) {
 		if(neighbor->get_cleanliness() > 1) {
-			neighbor->dirty();
+			neighbor->dirty(neighbor->get_pc());
 		}
 
 		location = neighbor;
@@ -30,7 +30,7 @@ void NonPlayer::react (char cleanliness) {
 		for( char i = 0; i < 4; i++) {
 			if(this->move((direction + i) % 4)) {
 				if (location->get_cleanliness() < 1) {
-					location->dirty();
+					location->dirty(location->get_pc());
 				}
 
 				return;
@@ -38,5 +38,14 @@ void NonPlayer::react (char cleanliness) {
 		}
 
 		delete this;
+	}
+}
+
+void NonPlayer::interact (Player * pc, char action) {
+	if(action == DIRTY) {
+		pc->mod_respect(1);
+	}
+	else {
+		pc->mod_respect(-1);
 	}
 }

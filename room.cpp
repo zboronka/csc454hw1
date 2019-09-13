@@ -38,10 +38,14 @@ bool Room::remove_occupant(Character * c) {
 	return false;
 }
 
-bool Room::clean() {
+bool Room::clean(bool pc) {
 	if(cleanliness > CLEAN) {
 		cleanliness--;
 		for(auto o = occupants.begin(); o != occupants.end(); ) {
+			if(pc) {
+				(*o)->interact(this->get_pc(), CLEAN);
+			}
+
 			(*o)->react(cleanliness);
 		}
 
@@ -51,10 +55,14 @@ bool Room::clean() {
 	return false;
 }
 
-bool Room::dirty() {
+bool Room::dirty(bool pc) {
 	if(cleanliness < DIRTY) {
 		cleanliness++;
 		for(auto o = occupants.begin(); o != occupants.end(); ) {
+			if(pc) {
+				(*o)->interact(this->get_pc(), DIRTY);
+			}
+
 			(*o)->react(cleanliness);
 		}
 		
@@ -62,4 +70,14 @@ bool Room::dirty() {
 	}
 
 	return false;
+}
+
+Character * Room::get_pc() {
+	for(auto o = occupants.begin(); o != occupants.end(); ) {
+		if((*o)->get_type() == PC) {
+			return *o;
+		}
+	}
+
+	return NULL;
 }

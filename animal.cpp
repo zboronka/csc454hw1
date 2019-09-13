@@ -4,7 +4,7 @@
 
 Animal::Animal (Room * r) {
 	location = r;
-	type = 2;
+	type = ANIMAL;
 }
 
 bool Animal::move (char direction) {
@@ -12,7 +12,7 @@ bool Animal::move (char direction) {
 
 	if(neighbor->add_occupant(this)) {
 		if(neighbor->get_cleanliness() < HALFCLEAN) {
-			neighbor->clean();
+			neighbor->clean(neighbor->get_pc());
 		}
 
 		location = neighbor;
@@ -28,7 +28,7 @@ void Animal::react (char cleanliness) {
 		for( char i = 0; i < 4; i++) {
 			if(this->move((direction + i) % 4)) {
 				if (location->get_cleanliness() > HALFCLEAN) {
-					location->clean();
+					location->clean(location->get_pc());
 				}
 
 				return;
@@ -36,5 +36,14 @@ void Animal::react (char cleanliness) {
 		}
 
 		delete this;
+	}
+}
+
+void Animal::interact (Player * pc, char action) {
+	if(action == CLEAN) {
+		pc->mod_respect(1);
+	}
+	else {
+		pc->mod_respect(-1);
 	}
 }

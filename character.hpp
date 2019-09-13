@@ -1,6 +1,10 @@
 #ifndef CHARACTER_HPP 
 #define CHARACTER_HPP
 
+#define PC 0
+#define NPC 1
+#define ANIMAL 2
+
 class Room;
 class Character {
 	protected:
@@ -12,6 +16,7 @@ class Character {
 
 		virtual bool move (char);
 		virtual void react(char) { return; }
+		virtual void interact(Character *, char) { return; }
 };
 
 #endif
