@@ -9,7 +9,8 @@ class Character {
 	public:
 		char get_type() { return type; }
 		Room * get_location() { return location; }
-		bool move (int);
+
+		virtual bool move (int);
 };
 
 #endif

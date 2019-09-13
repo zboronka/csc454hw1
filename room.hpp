@@ -28,6 +28,9 @@ class Room {
 
 		bool add_occupant(Character * c);
 		bool remove_occupant(Character *);
+
+		bool clean();
+		bool dirty();
 };
 
 #endif

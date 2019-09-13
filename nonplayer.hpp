@@ -5,8 +5,8 @@
 
 class NonPlayer : public Character {
 	public:
-		NonPlayer();
-		NonPlayer(Room *, char);
+		NonPlayer(Room *);
+		bool move(int);
 };
 
 #endif

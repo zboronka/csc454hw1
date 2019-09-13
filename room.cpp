@@ -1,4 +1,5 @@
 #include<cstddef>
+#include<iostream>
 #include "room.hpp"
 
 Room::Room (char i, char c) {
@@ -12,6 +13,7 @@ Room::Room (char i, char c) {
 
 bool Room::add_occupant(Character * c) {
 	if(occupants.size() == MAX_OCCUPANTS) {
+		cout << "Room full.\n";
 		return false;
 	}
 
