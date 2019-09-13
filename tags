@@ -5,17 +5,22 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+ANIMAL_HPP	animal.hpp	/^#define ANIMAL_HPP$/;"	d
+Animal	animal.cpp	/^Animal::Animal (Room * r) {$/;"	f	class:Animal
+Animal	animal.hpp	/^class Animal : public Character {$/;"	c
 CARDINALS	room.hpp	/^#define CARDINALS /;"	d
 CC	Makefile	/^CC=g++$/;"	m
 CHARACTER_HPP	character.hpp	/^#define CHARACTER_HPP$/;"	d
+CLEAN	room.hpp	/^#define CLEAN /;"	d
 Character	character.hpp	/^class Character {$/;"	c
+DIRTY	room.hpp	/^#define DIRTY /;"	d
 EAST	room.hpp	/^#define EAST /;"	d
+HALFCLEAN	room.hpp	/^#define HALFCLEAN /;"	d
 LIBS	Makefile	/^LIBS=$/;"	m
 MAX_OCCUPANTS	room.hpp	/^#define MAX_OCCUPANTS /;"	d
 NONPLAYER_HPP	nonplayer.hpp	/^#define NONPLAYER_HPP$/;"	d
 NORTH	room.hpp	/^#define NORTH /;"	d
-NonPlayer	nonplayer.cpp	/^NonPlayer::NonPlayer () {$/;"	f	class:NonPlayer
-NonPlayer	nonplayer.cpp	/^NonPlayer::NonPlayer (Room * r, char t) {$/;"	f	class:NonPlayer
+NonPlayer	nonplayer.cpp	/^NonPlayer::NonPlayer (Room * r) {$/;"	f	class:NonPlayer
 NonPlayer	nonplayer.hpp	/^class NonPlayer : public Character {$/;"	c
 PLAYER_HPP	player.hpp	/^#define PLAYER_HPP$/;"	d
 Player	player.cpp	/^Player::Player (Room * r) {$/;"	f	class:Player
@@ -27,23 +32,29 @@ SOURCE	Makefile	/^SOURCE=*.cpp$/;"	m
 SOUTH	room.hpp	/^#define SOUTH /;"	d
 TARGET	Makefile	/^TARGET=-o main$/;"	m
 WEST	room.hpp	/^#define WEST /;"	d
-add	room.cpp	/^bool Room::add(Character * c) {$/;"	f	class:Room	typeref:typename:bool
+add_occupant	room.cpp	/^bool Room::add_occupant(Character * c) {$/;"	f	class:Room	typeref:typename:bool
 all	Makefile	/^all:$/;"	t
+clean	room.cpp	/^bool Room::clean() {$/;"	f	class:Room	typeref:typename:bool
 cleanliness	room.hpp	/^		char name, cleanliness;$/;"	m	class:Room	typeref:typename:char
-get	room.hpp	/^		Character * get() { return *occupants.begin(); }$/;"	f	class:Room	typeref:typename:Character *
+dirty	room.cpp	/^bool Room::dirty() {$/;"	f	class:Room	typeref:typename:bool
 get_cleanliness	room.hpp	/^		char get_cleanliness () { return cleanliness; }$/;"	f	class:Room	typeref:typename:char
 get_location	character.hpp	/^		Room * get_location() { return location; }$/;"	f	class:Character	typeref:typename:Room *
 get_name	room.hpp	/^		char get_name () { return name; }$/;"	f	class:Room	typeref:typename:char
-get_neighbor	room.hpp	/^		Room * get_neighbor(int direction) { return neighbors[direction]; }$/;"	f	class:Room	typeref:typename:Room *
+get_neighbor	room.hpp	/^		Room * get_neighbor(char direction) { return neighbors[direction]; }$/;"	f	class:Room	typeref:typename:Room *
 get_respect	player.hpp	/^		char get_respect() { return respect; }$/;"	f	class:Player	typeref:typename:char
 get_type	character.hpp	/^		char get_type() { return type; }$/;"	f	class:Character	typeref:typename:char
 location	character.hpp	/^		Room * location;$/;"	m	class:Character	typeref:typename:Room *
 main	hw1.cpp	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
-move	character.cpp	/^bool Character::move(int direction) {$/;"	f	class:Character	typeref:typename:bool
+move	animal.cpp	/^bool Animal::move (char direction) {$/;"	f	class:Animal	typeref:typename:bool
+move	character.cpp	/^bool Character::move(char direction) {$/;"	f	class:Character	typeref:typename:bool
+move	nonplayer.cpp	/^bool NonPlayer::move (char direction) {$/;"	f	class:NonPlayer	typeref:typename:bool
 name	room.hpp	/^		char name, cleanliness;$/;"	m	class:Room	typeref:typename:char
 neighbors	room.hpp	/^		Room * neighbors [CARDINALS];$/;"	m	class:Room	typeref:typename:Room * []
 occupants	room.hpp	/^		vector<Character*> occupants;$/;"	m	class:Room	typeref:typename:vector<Character * >
-remove	room.cpp	/^bool Room::remove(Character * c) {$/;"	f	class:Room	typeref:typename:bool
+react	animal.cpp	/^void Animal::react (char cleanliness) {$/;"	f	class:Animal	typeref:typename:void
+react	character.hpp	/^		virtual void react(char) { return; }$/;"	f	class:Character	typeref:typename:void
+react	nonplayer.cpp	/^void NonPlayer::react (char cleanliness) {$/;"	f	class:NonPlayer	typeref:typename:void
+remove_occupant	room.cpp	/^bool Room::remove_occupant(Character * c) {$/;"	f	class:Room	typeref:typename:bool
 respect	player.hpp	/^		char respect;$/;"	m	class:Player	typeref:typename:char
-set_neighbor	room.hpp	/^		void set_neighbor(int direction, Room * location) { neighbors[direction] = location; }$/;"	f	class:Room	typeref:typename:void
+set_neighbor	room.hpp	/^		void set_neighbor(char direction, Room * location) { neighbors[direction] = location; }$/;"	f	class:Room	typeref:typename:void
 type	character.hpp	/^		char type;$/;"	m	class:Character	typeref:typename:char

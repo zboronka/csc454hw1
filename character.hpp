@@ -10,7 +10,8 @@ class Character {
 		char get_type() { return type; }
 		Room * get_location() { return location; }
 
-		virtual bool move (int);
+		virtual bool move (char);
+		virtual void react(char) { return; }
 };
 
 #endif

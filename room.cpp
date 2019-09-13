@@ -37,3 +37,29 @@ bool Room::remove_occupant(Character * c) {
 
 	return false;
 }
+
+bool Room::clean() {
+	if(cleanliness > CLEAN) {
+		cleanliness--;
+		for(auto o = occupants.begin(); o != occupants.end(); ) {
+			(*o)->react(cleanliness);
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
+bool Room::dirty() {
+	if(cleanliness < DIRTY) {
+		cleanliness++;
+		for(auto o = occupants.begin(); o != occupants.end(); ) {
+			(*o)->react(cleanliness);
+		}
+		
+		return true;
+	}
+
+	return false;
+}
