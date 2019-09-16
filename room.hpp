@@ -42,12 +42,15 @@ class Room {
 		bool add_occupant(Character *);
 		bool remove_occupant(Character *);
 
-		bool clean(bool);
-		bool dirty(bool);
+		bool clean(bool, char name);
+		bool dirty(bool, char name);
+		void leave();
 
-		Character * get_pc();
+		Player * get_pc();
 
 		string get_occupants();
+
+		Character * get_occupant(char);
 };
 
 #endif

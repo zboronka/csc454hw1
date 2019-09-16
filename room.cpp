@@ -55,12 +55,17 @@ bool Room::remove_occupant(Character * c) {
 	return false;
 }
 
-bool Room::clean(bool pc) {
+bool Room::clean(bool pc, char name) {
 	if(cleanliness > CLEAN) {
 		cleanliness--;
 		for(auto o = occupants.begin(); o < occupants.end(); o++) {
 			if(pc) {
-				(*o)->interact(this->get_pc(), CLEAN);
+				if(name == (*o)->get_name()) {
+					(*o)->interact(this->get_pc(), 3, CLEAN);
+				}
+				else {
+					(*o)->interact(this->get_pc(), pc, CLEAN);
+				}
 			}
 
 			(*o)->react(cleanliness);
@@ -72,12 +77,17 @@ bool Room::clean(bool pc) {
 	return false;
 }
 
-bool Room::dirty(bool pc) {
+bool Room::dirty(bool pc, char name) {
 	if(cleanliness < DIRTY) {
 		cleanliness++;
 		for(auto o = occupants.begin(); o < occupants.end(); o++) {
 			if(pc) {
-				(*o)->interact(this->get_pc(), DIRTY);
+				if(name == (*o)->get_name()) {
+					(*o)->interact(this->get_pc(), 3, DIRTY);
+				}
+				else {
+					(*o)->interact(this->get_pc(), pc, DIRTY);
+				}
 			}
 
 			(*o)->react(cleanliness);
@@ -89,10 +99,21 @@ bool Room::dirty(bool pc) {
 	return false;
 }
 
-Character * Room::get_pc() {
+void Room::leave() {
+	for(auto o = occupants.begin(); o < occupants.end(); o++) {
+		if((*o)->get_type() == ANIMAL) {
+			(*o)->interact(this->get_pc(), true, DIRTY);
+		}
+		else {
+			(*o)->interact(this->get_pc(), true, CLEAN);
+		}
+	}
+}
+
+Player * Room::get_pc() {
 	for(auto o = occupants.begin(); o < occupants.end(); o++) {
 		if((*o)->get_type() == PC) {
-			return *o;
+			return (Player*)*o;
 		}
 	}
 
@@ -108,3 +129,12 @@ string Room::get_occupants() {
 	return r;
 }
 		
+Character * Room::get_occupant(char name) {
+	for(auto o = occupants.begin(); o < occupants.end(); o++) {
+		if((*o)->get_name() == name) {
+			return *o;
+		}
+	}
+
+	return NULL;
+}

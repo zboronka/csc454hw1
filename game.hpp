@@ -1,6 +1,9 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#define WIN 80
+#define LOSE 0
+
 #include <vector>
 #include <string>
 
@@ -15,6 +18,7 @@ class Game {
 		string cardinals[4] = { "north", "south", "east", "west" };
 
 	public:
+
 		~Game();
 
 		bool init(int, char**);

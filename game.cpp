@@ -146,5 +146,41 @@ void Game::play () {
 		if(command == "west") {
 			cout << (pc->move(WEST) ? "You leave towards the west.\n" : "You can't go west.\n");
 		}
+		if(command == "clean") {
+			if(!pc->get_location()->clean(true, pc->get_name())) {
+				cout << "Room is already clean.\n";
+			}
+		}
+		if(command == "dirty") {
+			if(!pc->get_location()->dirty(true, pc->get_name())) {
+				cout << "Room is already dirty.\n";
+			}
+		}
+		int name;
+		char cmd[20] = "";
+		if(sscanf(command.c_str(), "%d:%s", &name, cmd)) {
+			command = string(cmd);
+			Character * target = pc->get_location()->get_occupant(name);
+			if(target) { 	
+				if(command == "clean") {
+					if(!pc->get_location()->clean(3, name)) {
+						cout << "Room is already clean.\n";
+					}
+				}
+				if(command == "dirty") {
+					if(!pc->get_location()->dirty(3, name)) {
+						cout << "Room is already dirty.\n";
+					}
+				}
+			}
+		}
+		if(pc->get_respect() >= WIN) {
+			cout << "You win.\n";
+			break;
+		}
+		if(pc->get_respect() <= LOSE) {
+			cout << "You lose.\n";
+			break;
+		}
 	}
 }

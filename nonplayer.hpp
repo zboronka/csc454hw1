@@ -9,7 +9,7 @@ class NonPlayer : public Character {
 		NonPlayer(char, Room *);
 		bool move(char);
 		void react(char);
-		void interact(Player *, char);
+		void interact(Player *, char, char);
 };
 
 #endif

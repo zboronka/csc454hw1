@@ -9,7 +9,7 @@ class Animal : public Character {
 		Animal(char, Room *);
 		bool move(char);
 		void react(char);
-		void interact(Player *, char);
+		void interact(Player *, char, char);
 };
 
 #endif

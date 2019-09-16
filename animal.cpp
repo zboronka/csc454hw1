@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <iostream>
+
 #include "room.hpp"
 #include "animal.hpp"
 
@@ -13,7 +15,7 @@ bool Animal::move (char direction) {
 
 	if(neighbor && neighbor->add_occupant(this)) {
 		if(neighbor->get_cleanliness() < HALFCLEAN) {
-			neighbor->clean(neighbor->get_pc());
+			neighbor->clean(false, -1);
 		}
 
 		location->remove_occupant(this);
@@ -29,23 +31,29 @@ void Animal::react (char cleanliness) {
 		char direction = rand() % 4;
 		for( char i = 0; i < 4; i++) {
 			if(this->move((direction + i) % 4)) {
+				cout << (int)this->get_name() << " leaves towards the " << cardinals[(direction + i) % 4] << ".\n";
 				if (location->get_cleanliness() > HALFCLEAN) {
-					location->clean(location->get_pc());
+					location->clean(false, -1);
 				}
 
 				return;
 			}
 		}
 
+		cout << (int)name << " left the room or whatever. I guess.\n";
+		location->remove_occupant(this);
+		location->leave();
 		delete this;
 	}
 }
 
-void Animal::interact (Player * pc, char action) {
+void Animal::interact (Player * pc, char mod, char action) {
 	if(action == CLEAN) {
-		pc->mod_respect(1);
+		pc->mod_respect(mod);
+		cout << (int)this->get_name() << " licks your face" << (mod > 1 ? " a lot" : "") << ". Respect is now " << (int)pc->get_respect() << ".\n";
 	}
 	else {
-		pc->mod_respect(-1);
+		pc->mod_respect(-mod);
+		cout << (int)this->get_name() << " growls" << (mod > 1 ? " a lot" : "") << ". Respect is now " << (int)pc->get_respect() << ".\n";
 	}
 }
