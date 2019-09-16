@@ -42,7 +42,7 @@ void NonPlayer::react (char cleanliness) {
 			}
 		}
 
-		cout << (int)name << " left the room or whatever. I guess.\n";
+		cout << (int)name << " left the house.\n";
 		location->remove_occupant(this);
 		location->leave();
 		delete this;
