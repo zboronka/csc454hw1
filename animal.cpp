@@ -2,7 +2,8 @@
 #include "room.hpp"
 #include "animal.hpp"
 
-Animal::Animal (Room * r) {
+Animal::Animal (char n, Room * r) {
+	name = n;
 	location = r;
 	type = ANIMAL;
 }
@@ -10,11 +11,12 @@ Animal::Animal (Room * r) {
 bool Animal::move (char direction) {
 	Room * neighbor = location->get_neighbor(direction);
 
-	if(neighbor->add_occupant(this)) {
+	if(neighbor && neighbor->add_occupant(this)) {
 		if(neighbor->get_cleanliness() < HALFCLEAN) {
 			neighbor->clean(neighbor->get_pc());
 		}
 
+		location->remove_occupant(this);
 		location = neighbor;
 		return true;
 	}

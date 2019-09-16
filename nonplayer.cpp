@@ -4,7 +4,8 @@
 
 using namespace std;
 
-NonPlayer::NonPlayer (Room * r) {
+NonPlayer::NonPlayer (char n, Room * r) {
+	name = n;
 	location = r;
 	type = NPC;
 }
@@ -12,11 +13,12 @@ NonPlayer::NonPlayer (Room * r) {
 bool NonPlayer::move (char direction) {
 	Room * neighbor = location->get_neighbor(direction);
 
-	if(neighbor->add_occupant(this)) {
+	if(neighbor && neighbor->add_occupant(this)) {
 		if(neighbor->get_cleanliness() > 1) {
 			neighbor->dirty(neighbor->get_pc());
 		}
 
+		location->remove_occupant(this);
 		location = neighbor;
 		return true;
 	}

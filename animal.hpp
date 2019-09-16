@@ -6,7 +6,7 @@
 
 class Animal : public Character {
 	public:
-		Animal(Room *);
+		Animal(char, Room *);
 		bool move(char);
 		void react(char);
 		void interact(Player *, char);

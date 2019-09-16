@@ -6,7 +6,7 @@
 
 class NonPlayer : public Character {
 	public:
-		NonPlayer(Room *);
+		NonPlayer(char, Room *);
 		bool move(char);
 		void react(char);
 		void interact(Player *, char);

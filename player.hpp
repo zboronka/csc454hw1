@@ -8,7 +8,7 @@ class Player : public Character {
 		char respect;
 
 	public:
-		Player(Room *);
+		Player(char, Room *);
 		char get_respect() { return respect; }
 		void mod_respect(char m) { respect += m; }
 };
