@@ -172,7 +172,30 @@ void Game::play () {
 						cout << "Room is already dirty.\n";
 					}
 				}
+				if(command == "north") {
+					cout << (int)target->get_name() << (target->move(NORTH) ? " leaves towards the north.\n" : " can't go north.\n");
+				}
+				if(command == "south") {
+					cout << (int)target->get_name() << (target->move(SOUTH) ? " leaves towards the south.\n" : " can't go south.\n");
+				}
+				if(command == "east") {
+					cout << (int)target->get_name() << (target->move(EAST) ? " leaves towards the east.\n" : " can't go east.\n");
+				}
+				if(command == "west") {
+					cout << (int)target->get_name() << (target->move(WEST) ? " leaves towards the west.\n" : " can't go west.\n");
+				}
 			}
+		}
+		if(command == "help") {
+			cout << "look               -- display information about the current room\n"
+				 << "north              -- go to the north\n"
+				 << "south              -- go to the south\n"
+				 << "east               -- go to the east\n"
+				 << "west               -- go to the west\n"
+				 << "clean              -- clean the room\n"
+				 << "dirty              -- dirty the room\n"
+				 << "exit               -- exit the game\n"
+				 << "<name>:<command>   -- make name do command\n";
 		}
 		if(pc->get_respect() >= WIN) {
 			cout << "You win.\n";
